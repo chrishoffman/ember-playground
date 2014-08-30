@@ -1,0 +1,281 @@
+@charset "utf-8";
+
+@import url("chathamfinancial-boiler.less");
+
+/* you can replace everything below with your own content. what's here is simply for a reference/demo page */
+
+/* ====================================== column styles */
+
+.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+  .coretile();
+}
+
+.col4 .col2 {
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  padding: 0 0 0 10px;
+  &:nth-last-of-type(1) { padding: 0 10px 0 0;}
+}
+
+.col12 [name="whatthefisthis"] {
+  border: 0;
+  padding: 10px;
+}
+
+aside[name="sidebar"]{ 
+  h4 {   padding: 10px 10px 0 10px;}
+  p {   padding: 0 10px; }
+  input[type="submit"]{ 
+    width: 95%; 
+    margin: 10px 10px 10px 10px;
+  }
+}
+
+h4 { margin: 0 0 10px 0; }
+
+/* ====================================== structure */
+#closingcontent { 
+  display: block;
+  margin: 15px 0;
+}
+
+footer#global {
+  width: 100%;
+  border-top: 1px solid @gray;
+  padding: 10px 0;
+  margin: 10px 0 0 0;
+  clear: both;
+
+  a { 
+    float: left;
+    display: block;
+    margin: 23px 20px 0 0;
+
+    &.cflogo { margin: 0 20px 0 0; }
+  }
+}
+
+/* ====================================== nested menu */
+
+nav[name="menu"]#dropdown {
+
+  &:after {
+    content: "";
+    display: block;
+    float: right;
+    margin: -43px 0 0 0;
+    .sprite(-60px 0);
+    width: 30px;
+    height: 30px;
+  }
+
+  ul[name="submenu"] {
+    width: 101%;
+
+    li {
+      padding: 10px 0 0 10px;
+      background-color: white;
+      border-right: 1px solid @gray;
+      border-left: 1px solid @gray;
+      border-bottom: 1px solid @gray;
+  
+      .transition(background-color);
+      &:hover { background-color: @gray; }
+      &:active { background-color: @mediumgray; .transition(none); }
+    }
+  }
+}
+
+
+/* ====================================== fi termination timeline */
+
+
+div.timeline {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  padding: 0;
+}
+
+div.timeline button {
+  padding: 0;
+  height: 100%;
+  width: 23.1%;
+  float: left;
+  position: relative;
+  background-color: white;
+  border: 1px solid @mediumgray;
+  cursor: pointer;
+  text-align: center;
+  font-size: 15px;
+  overflow: visible;
+  .boxsizing();
+
+  .transition(none);
+
+  &:hover { 
+    background-color: @gray;
+  }
+}
+
+div.timeline button[name="positionStart"] { 
+  border-right: 0;
+
+  &:after { 
+    content:"";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 28px;
+    background-color: white;
+    top: -1px;
+    transform:       skewX(-25deg);
+    -ms-transform:     skewX(-25deg);
+    -webkit-transform:   skewX(-25deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-0.46630765815499875, M21=0, M22=1, SizingMethod='auto expand')";
+    right: -7px; 
+    border-top: 1px solid @mediumgray; 
+    border-right: 1px solid @mediumgray;
+    border-bottom: 1px solid @mediumgray; 
+    z-index: 99;
+  }
+
+  &:hover:after { background-color: @gray;}
+}
+
+div.timeline button[name="position2"],
+div.timeline button[name="position3"] { 
+  border-left: 0;
+  border-right: 0;
+  margin: 0 20px;
+
+  &:before, &:after { 
+    content:"";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 28px;
+    background-color: white;
+    top: -1px;
+    transform:       skewX(-25deg);
+    -ms-transform:     skewX(-25deg);
+    -webkit-transform:   skewX(-25deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-0.46630765815499875, M21=0, M22=1, SizingMethod='auto expand')";
+    z-index: 99;
+  }
+
+  &:before { 
+    left: -7px;
+    border-top: 1px solid @mediumgray;
+    border-bottom: 1px solid @mediumgray; 
+    border-left: 1px solid @mediumgray; 
+  }
+  &:after { 
+    right: -7px; 
+    border-top: 1px solid @mediumgray; 
+    border-right: 1px solid @mediumgray;
+    border-bottom: 1px solid @mediumgray; 
+  }    
+
+  &:hover:before, &:hover:after { background-color: @gray;}
+}
+
+div.timeline button[name="position3"] { margin: 0 20px 0 0; }
+
+div.timeline button[name="positionEnd"] { 
+  border-left: none;
+  &:before { 
+    content:"";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 28px;
+    background-color: white;
+    top: -1px;
+    transform:       skewX(-25deg);
+    -ms-transform:     skewX(-25deg);
+    -webkit-transform:   skewX(-25deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-0.46630765815499875, M21=0, M22=1, SizingMethod='auto expand')";
+    left: -7px;
+    border-top: 1px solid @mediumgray;
+    border-bottom: 1px solid @mediumgray; 
+    border-left: 1px solid @mediumgray; 
+    z-index: 99;
+  }
+
+  &:hover:before { background-color: @gray; }
+}
+
+/* ====================================== fi termination timeline attempt 2 */
+
+div.timeline button[name="start"] {
+  border-right: none;
+  margin: 0 25px 0 0;
+}
+
+div.timeline button[name="02"],
+div.timeline button[name="03"] {
+  border-right: none;
+  border-left: none;
+}
+
+div.timeline button[name="03"] {
+  margin: 0 25px;
+}
+
+div.timeline button[name="end"] {
+  border-left: none;
+}
+
+div.timeline button:hover > .skewright,
+div.timeline button:hover > .skewleft, {
+  background-color: @gray;
+}
+
+div.timeline button div.skewleft,
+div.timeline button div.skewright {
+  width: 15px;
+  height: 28px;
+  background-color: white;
+  z-index: 1;
+  transform:       skewX(-25deg);
+  -ms-transform:     skewX(-25deg);
+  -webkit-transform:   skewX(-25deg);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-0.46630765815499875, M21=0, M22=1, SizingMethod='auto expand')";
+}
+
+div.timeline button div.skewleft {
+  float: left;
+  margin: -1px 0 0 -9px;
+  border-top:     1px solid @mediumgray;
+  border-bottom:   1px solid @mediumgray;
+  border-left:  1px solid @mediumgray;
+}
+
+div.timeline button div.skewright { 
+  float: right;
+  margin: -1px -9px 0 0;
+  border-top:     1px solid @mediumgray;
+  border-right:  1px solid @mediumgray;
+  border-bottom:   1px solid @mediumgray;
+}
+
+div.timeline button label {
+  line-height: 28px;
+  font-size: 14px;
+}
+
+/* structure for display purpose only  */
+section[name="timelinedisplay"],
+aside[name="sidebarmock"] {
+  border: 0;
+  background-color: transparent;
+}
+
+aside[name="sidebarmock"] {
+  min-height: 300px;
+  border-right: 1px solid @mediumgray;
+}

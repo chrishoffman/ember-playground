@@ -17,4 +17,8 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('vendor/d3/d3.min.js');
+app.import('vendor/js-md5/js/md5.min.js');
+app.import('vendor/highcharts/highcharts.js');
+
 module.exports = app.toTree();

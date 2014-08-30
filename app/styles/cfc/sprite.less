@@ -1,0 +1,125 @@
+/* sprite rules/usage */
+
+.sprite(@backgroundposition) {
+  background-image:     url('/assets/images/chathamfinancial-sprite.png');
+  background-repeat:     no-repeat;
+  background-position:  @backgroundposition;
+}
+
+i.icon {
+  .sprite(0 0);
+
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance:none;
+
+  &:hover{ background-color: @lightgray; }
+  &:active{ background-color: @gray; }
+
+  &[name="pointernorth"] {   background-position:     0 0;    }
+  &[name="pointereast"] {   background-position: -30px 0;     }
+  &[name="pointersouth"] {   background-position: -60px 0;    }
+  &[name="pointerwest"] {   background-position: -90px 0;    }
+  &[name="pagelast"] {     background-position: -120px 0;    }
+  &[name="pagefirst"] {     background-position: -150px 0;    }
+  &[name="upload"] {       background-position: -180px 0;    }
+  &[name="download"] {     background-position: -210px 0;    }
+  &[name="arrownorth"] {     background-position: -240px 0;    }
+  &[name="arroweast"] {     background-position: -270px 0;    }
+  &[name="arrowsouth"] {     background-position: -300px 0;    }
+  &[name="arrowwest"] {     background-position: -330px 0;    }
+  &[name="caretnorth"] {     background-position: -360px 0;    }
+  &[name="careteast"] {     background-position: -390px 0;    }
+  &[name="caretsouth"] {     background-position: -420px 0;    }
+  &[name="caretwest"] {     background-position: -450px 0;    }
+  &[name="caretnorthrev"] {  background-position: -480px 0;    }
+  &[name="careteastrev"] {  background-position: -510px 0;    }
+  &[name="caretsouthrev"] {  background-position: -540px 0;    }
+  &[name="caretwestrev"] {  background-position: -570px 0;    }
+  &[name="controlexpand"] {  background-position:  0 -30px;    }
+  &[name="maxout"] {      background-position: -30px -30px;  }
+  &[name="fullreduce"] {    background-position: -60px -30px;  }
+  &[name="refresh"] {      background-position: -90px -30px;  }
+  &[name="revert"] {      background-position: -120px -30px;  }
+  &[name="addition"] {    background-position: -180px -30px;  }
+  &[name="subtraction"] {    background-position: -210px -30px;  }
+  &[name="close"] {      background-position: -240px -30px;  }
+  &[name="templates"] {    background-position: -270px -30px;  }
+  &[name="docs"] {      background-position: -300px -30px;  }
+  &[name="edit"] {      background-position: -330px -30px;  }
+  &[name="calendar"] {    background-position: -360px -30px;  }
+  &[name="clock"] {      background-position: -390px -30px;  }
+  &[name="searchlarge"] {    background-position: -420px -30px;  }
+  &[name="search"] {      background-position: -450px -30px;  }
+  &[name="user"] {      background-position: -480px -30px;  }
+  &[name="help"] {      background-position: -510px -30px;  }
+  &[name="info"] {      background-position: -540px -30px;  }
+  &[name="marriages"] {    background-position: -570px -30px;  }
+  &[name="link"] {      background-position:   0px -60px;  }
+  &[name="unlink"] {      background-position: -30px -60px;  }
+  &[name="detailview"] {    background-position: -60px -60px;  }
+  &[name="overview"] {    background-position: -90px -60px;  }
+  &[name="visible"] {      background-position: -120px -60px;  }
+  &[name="hidden"] {      background-position: -150px -60px;  }
+  &[name="group"] {      background-position: -180px -60px;  }
+  &[name="isgrouped"] {    background-position: -210px -60px;  }
+  &[name="ascending"] {    background-position: -240px -60px;  }
+  &[name="isascending"] {    background-position: -270px -60px;  }
+  &[name="descending"] {    background-position: -300px -60px;  }
+  &[name="isdescending"] {  background-position: -330px -60px;  }
+  &[name="posneg"] {      background-position: -360px -60px;  }
+  &[name="table"] {      background-position: -390px -60px;  }
+  &[name="graph"] {      background-position: -420px -60px;  }
+  &[name="percent"] {      background-position: -480px -60px;  }
+  &[name="amount"] {      background-position: -510px -60px;  }
+  &[name="contact"] {      background-position: -540px -60px;  }
+  &[name="cogwheel"] {     background-position: -570px -60px;   }
+  &[name="delete"] {       background-position:   0px -90px;   }
+  &[name="reject"] {       background-position:  -30px -90px;   }
+  &[name="approve"] {     background-position:  -60px -90px;   }
+  &[name="excel"] {       background-position:  -90px -90px;   }
+  &[name="word"] {       background-position: -120px -90px;   }
+  &[name="notfavorite"] {    background-position: -150px -90px;   }
+  &[name="isfavorite"] {    background-position: -180px -90px;   }
+  &[name="gripper"] {      background-position: -210px -90px;   }
+  &[name="cficon"] {      background-position: -240px -90px;   }
+  &[name="cficon1c"] {    background-position: -270px -90px;   }
+  &[name="alert"] {      background-position: -300px -90px;   }
+  &[name="pending"] {      background-position: -330px -90px;   }
+  &[name="draft"] {      background-position: -360px -90px;   }
+  &[name="correct"] {      background-position:  -60px -90px;   }
+  &[name="incorrect"] {    background-position:    0 -90px;   }
+}
+
+span.icondisplay {
+  float: left;
+  width: 165px;
+  min-height: 175px;
+  margin: 15px 15px 0 0;
+
+  &:nth-last-child(1) { margin-right: 0;}
+
+  p,
+  label {
+    font-size: 15px;
+    margin: 0;
+    line-height: 20px;
+   }
+
+   label {
+     display: block;
+     font-weight: 500;
+     margin: 10px 0 5px 0;
+     cursor: text;
+  }
+}
+
+.cflogo {
+  width: 195px;
+  height: 60px;
+  .sprite(-405px -165px);
+  display: block;
+}

@@ -1,0 +1,6 @@
+<ul class="server-stat-list">
+  {{#each server in model}}
+    {{server-summary cpu=server.cpu}}
+    {{highcharts-chart chartOptions=chartOptions series=series}}
+  {{/each}}
+</ul>

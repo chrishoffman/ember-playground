@@ -1,0 +1,91 @@
+/* mixins */
+.boxsizing(@boxsizing: border-box) { 
+  -webkit-box-sizing: @boxsizing;
+  -moz-box-sizing:   @boxsizing;
+  -o-box-sizing:     @boxsizing;
+  box-sizing:     @boxsizing;
+}
+.boxshadow(@boxshadow) { 
+  -webkit-box-shadow: @boxshadow;
+  -moz-box-shadow:   @boxshadow;
+  -o-box-shadow:     @boxshadow;
+  box-shadow:     @boxshadow;
+}
+
+.borderradius(@borderradius) { 
+  -webkit-border-radius:   @borderradius;
+  -moz-border-radius:   @borderradius;
+  -o-border-radius:     @borderradius;
+  border-radius:       @borderradius;
+}
+
+.transform(@transform) {
+  -webkit-transform:   @transform;
+  -moz-transform:   @transform;
+  -o-transform:     @transform;
+  transform:       @transform;
+}
+
+.transition(@transitionproperty, @duration: 0.2s, @animationtype: linear) {
+  -webkit-transition: @transitionproperty @duration @animationtype;  
+  -moz-transition:    @transitionproperty @duration @animationtype;
+  -ms-transition:     @transitionproperty @duration @animationtype; 
+  -o-transition:      @transitionproperty @duration @animationtype;
+}
+
+.columncount(@columncount) {
+  -webkit-column-count:   @columncount;
+  -moz-column-count:     @columncount;
+  column-count:       @columncount;
+}
+
+/*====================================================================== styling */
+
+/* this is the white on gray tiled effect we use throughout a lot of Core projects */
+.coretile() {
+  background-color: white;
+  border-left: 1px solid @mediumgray;
+  border-right: 1px solid @mediumgray;
+  border-bottom: 2px solid @darkgray;
+}
+
+@border: 1px solid @gray;
+
+/*====================================================================== structure */
+
+.pagewidth(@arg: 1224px) {
+  width: @arg;
+  max-width: @arg;
+  margin: 0 auto;
+  padding: 10px;
+  .boxsizing();
+}
+.pagewidthsmall(@arg: 960px) {
+  width: @arg;
+  max-width: @arg;
+  margin: 0 auto;
+  padding: 10px;
+  .boxsizing();
+}
+.pagewidthlarge(@arg: 1764px) {
+  width: @arg;
+  max-width: @arg;
+  margin: 0 auto;
+  padding: 10px;
+  .boxsizing();
+}
+
+/*====================================================================== queries. adapted from css tricks. bubble these within the css rules by first declaring @media followed by @themixin (@media @phone{})*/
+
+@phone:      ~"only screen and (min-width: 320px) and (max-width: 480px)";
+
+@smalldesktop:  ~"only screen and (min-width: 481px) and (max-width: 1024px)";
+
+@tablet-land:   ~"only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : landscape)";
+
+@tablet-port:  ~"only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait)";
+
+@largedesktop:  ~"only screen and (min-width: 1824px)";
+
+@retina:    ~"only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)";
+

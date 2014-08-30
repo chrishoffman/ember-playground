@@ -1,0 +1,605 @@
+/* HTML/LESS Starter File */
+
+@import url("colors.less");
+
+@import url("mixins.less");
+
+@import url("columns.less");
+
+@import url("sprite.less");
+
+/*====================================================================== universals */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clear { clear:both; }
+
+::-webkit-selection {  background-color: @black; color: white; text-shadow: none;}
+::-moz-selection {    background-color: @black; color: white; text-shadow: none;}
+::selection {       background-color: @black; color: white; text-shadow: none;}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display:block; }
+
+img { border: 0; -ms-interpolation-mode:bicubic; vertical-align: middle; }
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: none;
+  *overflow: visible;
+  cursor: pointer;
+}
+
+input:focus {outline:0; border:0;}
+
+/*====================================================================== typography */
+
+* {
+  font-family: "franklin-gothic-urw", Helvetica, sans-serif;
+  /* Franklin Gothic is the font we have been using for Core projects. We're licensed to do so through our Creative Cloud subscription. */
+  color: @black;
+}
+
+
+html { 
+  font-size:           100%;
+  -webkit-text-size-adjust:   100%;
+  -ms-text-size-adjust:     100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing:   antialiased;
+  -o-font-smoothing:     antialiased;
+  font-smoothing:     antialiased;
+  text-rendering:     optimizeLegibility;
+}
+
+h1, h2, h3, h4 { margin: 10px 0; }
+
+h1, h2 {    font-weight: 300; }
+h3, p, a {     font-weight: 500; }
+h4, strong {  font-weight: 800; }
+
+h1 {
+  font-size: 50px;
+  @media @largedesktop { font-size: 60px; }
+  @media @smalldesktop { font-size: 40px; }
+}
+
+h2 {
+  font-size: 40px;
+  @media @largedesktop { font-size: 50px; }
+  @media @smalldesktop { font-size: 30px; }
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 500;
+  @media @largedesktop { font-size: 35px; }
+  @media @smalldesktop { font-size: 19px; }
+}
+
+h4 {
+  font-size: 19px;
+  @media @largedesktop { font-size: 25px; }
+  @media @smalldesktop { font-size: 18px; }
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 15px 0;
+  @media @largedesktop { font-size: 20px; line-height: 28px; margin: 20px 0; }
+}
+
+label, input, button {
+  font-size: 16px;  
+  @media @largedesktop { font-size: 20px; }
+}
+
+blockquote {
+  display: block;
+  border-top: @border;
+  border-bottom: @border;
+  .boxsizing();
+  padding: 20px;
+  font-size: 25px;
+  color: @darkgray;
+  
+  @media @largedesktop { font-size: 30px; padding: 25px; }
+  @media @smalldesktop { font-size: 20px; }
+}
+
+a, a:focus, a:hover, a:active, a h1, a h2, a h3, a h4 {
+  outline: 0; 
+  text-decoration: none; 
+  cursor: pointer;
+  color: @blue;
+  .transition(color);
+  &:hover { color: @blue50;}
+}
+
+/*====================================================================== controls */
+
+input[type="submit"], 
+button, 
+button[name="cancel"],
+button[name="next"],
+button[name="back"],
+button[name="confirm"]{
+  height: 40px;
+  padding: 5px 10px;
+  border: 0;
+  outline: 0;
+  letter-spacing: 1px;
+  .transition(background-color);
+
+  @media @largedesktop { padding: 10px 15px; }
+
+  &.col1, &.col2, &.col3, &.col4, &.col5, &.col6, &.col7, &.col8, &.col9, &.col10, &.col11, &.col12 { 
+    margin: 10px 10px 10px 0;
+    float: left;
+
+    @media @largedesktop { margin: 20px 20px 20px 0; }
+  }
+}
+
+input[type="submit"] {
+  background-color: @green;
+  color: white;
+  &:hover{ background-color: @green50;}
+  &:active{ background-color: @green; .transition(none);}
+}
+
+button {
+  color: @black;
+  background-color: @mediumgray;
+  display: block;
+  &:hover{ background-color: @gray;}
+  &:active{ background-color: @mediumgray; .transition(none);}
+}
+
+div.icheckbox_flat-blue,
+div.iradio_flat-blue,
+label[for] { 
+  float: left;
+}
+
+div.icheckbox_flat-blue,
+div.iradio_flat-blue { 
+  margin: 5px 5px 0 0;
+}
+
+label[for] {
+  margin: 7px 10px 10px 0;
+  padding: 0;
+  height: 20px;
+  cursor: pointer;
+
+  @media @largedesktop { margin: 2px 20px 10px 0; }
+}
+
+button[name="back"]:before, 
+button[name="next"]:after { font-size: 20px; }
+
+button[name="back"]:before {   content: "\2039"; margin: 0 5px 0 0; }
+button[name="next"]:after {   content: "\203A"; margin: 0 0 0 5px; }
+
+/*====================================================================== structure */
+
+html { 
+  width: 100%;
+  height: 100%;
+  background-color: @lightgray;
+}
+
+body { 
+  .pagewidth();
+
+  @media @smalldesktop {  
+    .pagewidthsmall(); 
+  }
+
+  @media @largedesktop {  
+    .pagewidthlarge(); 
+  }
+}
+
+.columnsamples {
+  .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+    border: 1px solid @mediumgray;
+    color: @mediumgray;
+  }
+}
+
+
+/*====================================================================== site nav */
+
+header.chatham-stripe {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: @blue;
+  z-index: 101;
+
+  .orange, .gray { 
+    float: right; 
+    height: inherit;
+    width: 13%;
+    background-color: @orange;
+    display: block;
+  }
+  .gray { background-color: @mediumgray; }
+}
+
+nav.global {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: @black;
+  z-index: 100;
+
+  .navcontent { 
+    margin: 0 auto 0 auto;
+    height: 100%;
+    .pagewidth();
+
+    @media @smalldesktop {  
+      .pagewidthsmall(); 
+    }
+
+    @media @largedesktop {  
+      .pagewidthlarge(); 
+    }
+    
+    padding: 0;
+  }
+}
+
+nav.global + section { 
+  margin-top: 70px; 
+}
+
+nav[name="menu"] {
+  display: block;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 0 0 10px;
+  .transition(background-color);
+  &:hover { background-color: @gray; }
+  
+  @media @largedesktop { 
+    padding: 5px 0 0 10px;
+    p { margin: 0; }
+    &:after { margin: -30px 0 0 0;}
+  }
+
+  ul[name="submenu"] { 
+    display: none;
+    position: absolute;
+    width: auto;
+    top: 38px;
+    left: -1px;
+    z-index: 2;
+    height: auto;
+    list-style: none;
+    
+    li { 
+      .boxsizing();
+      width: 100%;
+      height: 40px;
+      @media @largedesktop { padding: 5px 0 0 10px; }
+    }      
+  }
+  
+  &:hover > ul[name="submenu"] { display: block; background-color: @blue; }
+}
+
+nav.global nav[name="menu"] {
+  width: auto;
+  height: 100%;
+  background-color: inherit;
+  border-top: none;
+  border-right: 1px solid @darkgray;
+  border-bottom: none;
+  border-left: none;
+  padding: 19px 15px 0 15px;
+  margin: 0;
+  float: left;
+  .boxsizing();
+  .transition(none);
+
+  &:hover { background-color: @navblack; }
+  &:first-child { border-left: 1px solid @darkgray; }
+
+  p, li { color: white; font-size: 15px; }
+
+  ul[name="submenu"] {
+    top: 60px;
+    width: 200px;
+
+    li { 
+      background-color: @navblack;
+      border-top: 1px solid @black;
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+      padding: 10px 5px 10px 10px;
+
+      &:hover { background-color: @black;}
+
+    }
+  }
+}
+
+nav[name="menu"]#usercontrols {
+  float: right;
+  border-left: 1px solid @darkgray;
+  border-right: 1px solid @darkgray;
+  width: auto;
+  padding-right: 45px;
+  position: relative;
+
+  &:hover{
+    border-bottom: 1px solid @black;
+  }
+
+  &:after {
+    content:"";
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: right;
+    .sprite(-540px 0);
+    margin: -43px -30px 0 0;
+
+  }
+
+
+  ul[name="submenu"] {
+    width: 250px;
+    left: auto;
+    right: 0;
+    padding: 20px;
+    background-color: @navblack;
+    cursor: default;    
+    
+    li {
+      height: auto;
+      cursor: default;
+      &:hover{ background-color: @navblack; }
+      border-top: none; 
+      padding: 0;
+
+      p {
+        border-bottom: 1px solid @black;
+        padding: 0 0 10px 0;
+        margin: 0 0 10px 0;
+        line-height: 20px;
+        overflow: auto;
+        
+        &.name {
+          font-size: 21px;
+          font-weight: 500;
+          line-height: 35px;
+
+          a {
+            font-size: 12px;
+            float: right;
+            display: none;
+            margin: 0;  
+            
+            
+            &:hover {
+            
+            }
+
+          }
+
+          &:hover {
+
+            a {
+              display: inline;
+            }
+          }
+        
+          &:before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            display: block;
+            float: left;
+            margin: 0 5px 0 0;
+            .sprite(-480px -30px);
+          }
+
+        }
+
+        &.settings {
+
+          line-height: 30px;
+          
+
+          a {
+            font-size: 12px;
+            float: right;
+            display: none;
+            margin: 0;  
+            
+            
+            &:hover {
+            
+            }
+
+          }
+
+          &:hover {
+
+            a {
+              display: inline;
+            }
+          }
+        
+          &:before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            display: block;
+            float: left;
+            margin: 0 5px 0 0;
+            .sprite(-570px -60px);
+          }
+
+        }
+
+        &.impersonation {
+          font-size: 14px;
+
+          span {
+            color: #fff;
+            display: block;
+            margin-top: 5px;
+            font-weight: 500;
+            font-size: 18px;
+          }
+
+        }
+
+      }
+
+    }  
+
+
+    .disclaimers {
+      border-top: 1px solid @black;
+      padding: 10px 0 0 0;
+      margin: 10px 0 0 0;
+    }
+
+    button {
+      width: 100%;
+      height: auto;
+      color: white;
+      padding: 10px 5px;
+      margin: 15px 0;
+      font-size: 14px;
+
+      &.impersonate {
+        background-color: @green;
+        
+        &:hover {
+          background-color: @green50;
+        }
+
+      }
+  
+      &.logout {
+
+        background-color: @red;
+              
+        &:hover {
+          background-color: @red50;
+        }
+  
+      }
+  
+    }
+
+    small { 
+      display: block;
+      color: @gray;
+      margin: 10px 0 0 0;
+    }
+
+    a {
+      text-decoration: underline;
+      color: white;
+      margin: 0 10px 0 0;
+      
+      &:hover { color: @gray;}
+    }
+  
+  }
+}
+
+nav[name="menu"]#help {
+  padding-top: 22px;
+  border: none;
+  float: right;
+
+  a {
+    display: block;
+    height: 100%;
+    color: #fff;
+    font-size: 15px;
+    text-indent: -9999px;
+
+    &:before{
+      content: "";
+      width: 30px;
+      height: 30px;
+      display: block;
+      float: left;
+      margin: -6px 0 0;
+      .sprite(-420px -90px);
+
+    }
+
+  }
+
+}
+
+.notie-count {
+    background-color: @yellow;
+    border-radius: 50%;
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.35);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    width: 16px;
+    height: 16px;
+    line-hight: 16px;
+    padding: 4px 2px 0;
+    text-align: center;
+    float: right;
+    margin: -52px -38px 0 0;
+}
+
+p.notie {
+
+  &:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: block;
+    float: left;
+    margin: 5px 5px 0 0;
+    .sprite(-300px -90px);
+  }
+
+  &:hover {
+    
+
+  }
+
+
+}
+
+
+
+a.sitelogo {
+  width: 138px;
+  height: 40px;
+  display: block;
+  .sprite(-185px  -172px);
+  float: left;
+  margin: 8px 15px 0 0;
+}
+
+#controls {
+  height: 100%;
+}
