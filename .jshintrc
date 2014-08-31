@@ -6,7 +6,8 @@
     "DevcentralENV": true,
     "d3": true,
     "md5": true,
-    "$": true
+    "$": true,
+    "Highcharts": true
   },
   "browser" : true,
   "boss" : true,
